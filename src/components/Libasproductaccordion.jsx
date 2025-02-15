@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { motion } from "framer-motion";
 function Libasproductaccordion() {
   // State to manage which sections are open
   const [openSection, setOpenSection] = useState(null);
@@ -118,7 +118,7 @@ function Libasproductaccordion() {
       </div>
 
       {/* Report Button */}
-      <button
+      <motion.button
         className="   mt-1"
         style={{
           border: "4px",
@@ -128,9 +128,11 @@ function Libasproductaccordion() {
           color: "white",
           fontSize: "16px",
         }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
         Report
-      </button>
+      </motion.button>
     </div>
   );
 }

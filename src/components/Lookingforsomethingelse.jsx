@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function Lookingforsomethingelse() {
   return (
@@ -35,7 +36,7 @@ function Lookingforsomethingelse() {
           Not the ideal size or color? Don’t worry! Get notified about similar
           listings and <br /> never miss out on what you love!
         </p>
-        <button
+        <motion.button
           className="btn"
           style={{
             backgroundColor: "#C6AC96",
@@ -47,9 +48,11 @@ function Lookingforsomethingelse() {
             border: "none",
             width: "177px",
           }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Create an alert
-        </button>
+        </motion.button>
       </div>
     </div>
   );

@@ -202,19 +202,38 @@ function Libasfooter() {
               className="me-3 terms-conditiopns"
               style={{
                 marginLeft: "40px",
+                cursor: "pointer",
               }}
             >
               Terms & Conditions
             </span>
-            <span>Privacy Policy & Cookies</span>
+            <span
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              Privacy Policy & Cookies
+            </span>
           </Col>
 
           <Col
             md={3}
             className="text-md-end d-flex justify-content-end align-items-center"
           >
-            <img src="appstore.svg" alt="App Store" />
-            <img src="google.svg" alt="Google Play" />
+            <img
+              src="appstore.svg"
+              alt="App Store"
+              style={{
+                cursor: "pointer",
+              }}
+            />
+            <img
+              src="google.svg"
+              alt="Google Play"
+              style={{
+                cursor: "pointer",
+              }}
+            />
           </Col>
         </Row>
       </Container>

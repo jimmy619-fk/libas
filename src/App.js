@@ -5,6 +5,7 @@ import Libasnav from "./components/Libasnav";
 import Libasmens from "./pages/Libasmens";
 import Libasheader from "./components/Libasheader";
 import Libasfooter from "./components/Libasfooter";
+import Libasmobilefooter from "./components/Libasmobilefooter";
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Libasmens />} />
       </Routes>
       <Libasfooter />
+      <Libasmobilefooter />
     </Router>
   );
 }

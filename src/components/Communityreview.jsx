@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { motion } from "framer-motion";
 
 function Communityreview() {
   return (
@@ -190,7 +191,7 @@ function Communityreview() {
           placeholder="Write a Comment"
           style={{ borderRadius: "4px", fontSize: "14px" }}
         ></textarea>
-        <button
+        <motion.button
           className=" mt-4"
           style={{
             backgroundColor: "#C6AC96",
@@ -202,9 +203,11 @@ function Communityreview() {
             borderRadius: "4px",
             border: "0",
           }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           Send
-        </button>
+        </motion.button>
       </div>
     </div>
   );
