@@ -6,10 +6,36 @@ import Libasmorefromthisseller from "../components/Libasmorefromthiseller";
 import Lookingforsomethingelse from "../components/Lookingforsomethingelse";
 import Communityreview from "../components/Communityreview";
 import Countonus from "../components/Countonus";
+import { Container, Navbar } from "react-bootstrap";
 
 function Libasmens() {
   return (
-    <div className=" mt-5">
+    <div className=" ">
+      {/* sub-header */}
+      <div>
+        <Navbar bg="white" expand="lg" className=" p-0 m-0">
+          <Container
+            style={{
+              maxWidth: "90%",
+              padding: "7px 0", // Reduce top & bottom space
+              paddingBottom: "16px",
+            }}
+            className=" d-flex justify-content-center align-items-center"
+          >
+            <p
+              style={{
+                fontSize: "18px",
+                fontWeight: "400", // Regular weight
+                color: "#808080",
+                margin: "0", // Remove extra space
+              }}
+            >
+              Libas &gt; Shop
+            </p>
+          </Container>
+        </Navbar>
+      </div>
+
       <Libasproduct />
       <Libasproductdescription />
       {/* You may also like */}

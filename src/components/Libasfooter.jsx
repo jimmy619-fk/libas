@@ -15,7 +15,7 @@ function Libasfooter() {
         backgroundColor: "#1E1E1E",
         color: "#FFFFFF",
       }}
-      className="helvetica-font"
+      className="helvetica-font d-none d-md-block"
     >
       <Container
         fluid

@@ -110,7 +110,7 @@ function Libasmorefromthisseller() {
       {
         breakpoint: 480, // Small mobile
         settings: {
-          slidesToShow: 2.1, // Show 2 cards
+          slidesToShow: 2, // Show 2 cards
         },
       },
     ],
@@ -118,7 +118,7 @@ function Libasmorefromthisseller() {
 
   return (
     <div
-      className="my-4 container montserrat-font"
+      className="my-4 container montserrat-font overflow-hidden"
       style={{ margin: "0 auto" }}
     >
       <div

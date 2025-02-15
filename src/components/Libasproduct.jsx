@@ -15,7 +15,7 @@ function Libasproduct() {
   const [mainImage, setMainImage] = useState(images[0]);
   const [isLiked, setIsLiked] = useState(false);
   return (
-    <div className="container  mt-5">
+    <div className="container  mt-2 border-top">
       <div className="row">
         {/* Left Section (Product Images)   */}
         <div className="col-md-6 libas-web-slider-container">
@@ -23,7 +23,7 @@ function Libasproduct() {
             {/* Main product image */}
             <div
               className="d-flex gap-3 justify-content-end "
-              style={{ marginRight: "5px", marginTop: "5px" }}
+              style={{ marginRight: "5px", marginTop: "12px" }}
             >
               <img src="/libasring.svg" alt="" style={{ cursor: "pointer" }} />
               <img src="/libasshare.svg" alt="" style={{ cursor: "pointer" }} />
