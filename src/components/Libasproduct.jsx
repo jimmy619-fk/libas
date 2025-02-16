@@ -60,7 +60,12 @@ function Libasproduct() {
     }
   };
   return (
-    <div className="container  mt-2 border-top">
+    <div
+      className="container  mt-2 border-top product-detail-border"
+      style={{
+        maxWidth: "90%",
+      }}
+    >
       <div className="row">
         {/* Left Section (Product Images)   */}
         <div className="col-md-6 libas-web-slider-container">
@@ -512,7 +517,7 @@ function Libasproduct() {
                       <p
                         className="mb-0"
                         style={{
-                          fontSize: "16px",
+                          fontSize: "14px",
                           fontWeight: "500",
                           marginBottom: "0px", // Remove bottom margin for 0 gap
                           color: "#262626",
@@ -714,7 +719,7 @@ function Libasproduct() {
                   </div>
                   <p
                     style={{
-                      fontSize: "16px",
+                      fontSize: "14px",
                       fontWeight: "500",
                       color: "#262626",
                       marginBottom: "17px",

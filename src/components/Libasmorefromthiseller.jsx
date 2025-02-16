@@ -131,7 +131,7 @@ function Libasmorefromthisseller() {
         <h3
           className="fw-bold also-like-heading m-0"
           style={{
-            fontSize: "40px",
+            fontSize: "35px",
           }}
         >
           More From This Seller

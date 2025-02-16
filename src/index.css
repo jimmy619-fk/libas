@@ -126,7 +126,7 @@ body {
     font-size: 12px !important;
   }
   .also-like-heading {
-    font-size: 20px !important;
+    font-size: 18px !important;
     font-weight: 500 !important;
   }
   .size-cond {
@@ -139,6 +139,10 @@ body {
     font-weight: 400 !important;
     height: 42px !important;
     width: 42px !important;
+  }
+
+  .product-detail-border {
+    max-width: 100% !important;
   }
 }
 /* show  product left slider mobile */

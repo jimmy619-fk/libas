@@ -25,7 +25,14 @@ function Libasproductaccordion() {
           }}
           onClick={() => toggleSection("quality")}
         >
-          <span className="text-dark">Quality Control</span>
+          <span
+            className="text-dark"
+            style={{
+              fontSize: "18px",
+            }}
+          >
+            Quality Control
+          </span>
           <span
             className="d-flex align-items-center justify-content-center   text-white"
             style={{
@@ -55,7 +62,14 @@ function Libasproductaccordion() {
           }}
           onClick={() => toggleSection("Return Policy")}
         >
-          <span className="text-dark">Return Policy</span>
+          <span
+            className="text-dark"
+            style={{
+              fontSize: "18px",
+            }}
+          >
+            Return Policy
+          </span>
           <span
             className="d-flex align-items-center justify-content-center   text-white"
             style={{
@@ -85,7 +99,14 @@ function Libasproductaccordion() {
           }}
           onClick={() => toggleSection("Anything missed?")}
         >
-          <span className="text-dark">Anything missed?</span>
+          <span
+            className="text-dark"
+            style={{
+              fontSize: "18px",
+            }}
+          >
+            Anything missed?
+          </span>
           <span
             className="d-flex align-items-center justify-content-center   text-white"
             style={{
@@ -108,7 +129,7 @@ function Libasproductaccordion() {
         <p
           className="montserrat-font font-light"
           style={{
-            fontSize: "18px",
+            fontSize: "16px",
             color: "#777777",
           }}
         >
