@@ -487,7 +487,7 @@ function Libasproduct() {
               />
 
               {/* Seller Information */}
-              <div className="ms-3 " style={{ flexGrow: 1 }}>
+              <div className="ms-2 " style={{ flexGrow: 1 }}>
                 <div className="d-flex align-items-center">
                   <div className="mb-0 d-flex flex-column">
                     <div className="d-flex align-items-center justify-content-center">
