@@ -2,18 +2,63 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Libasproductsleftsidemobielslider from "./Libasproductsleftsidemobielslider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { MdClose, MdArrowBack, MdArrowForward } from "react-icons/md";
+
 function Libasproduct() {
   // Array of product images
   const images = [
-    "libasshoes1.svg",
     "libasshoes3.png",
     "libasshoes1.svg",
-    "libasshoes3.png",
+    "sample4.jpg",
+    "sample1.jpg",
+    "sample2.jpg",
+    "sample6.jpg",
   ];
 
-  // State to track the main image
+  // State for main image and modal
   const [mainImage, setMainImage] = useState(images[0]);
   const [isLiked, setIsLiked] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [thumbnailIndex, setThumbnailIndex] = useState(0);
+
+  // Open Modal
+  const openModal = (index) => {
+    setCurrentIndex(index);
+    setIsModalOpen(true);
+  };
+
+  // Close Modal
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  // Navigate Left
+  const prevImage = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Navigate Right
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+  const visibleThumbnails = 4; // Number of thumbnails visible at a time
+
+  const nextThumbnail = () => {
+    if (thumbnailIndex + visibleThumbnails < images.length) {
+      setThumbnailIndex(thumbnailIndex + 1);
+    }
+  };
+
+  const prevThumbnail = () => {
+    if (thumbnailIndex > 0) {
+      setThumbnailIndex(thumbnailIndex - 1);
+    }
+  };
   return (
     <div className="container  mt-2 border-top">
       <div className="row">
@@ -25,19 +70,36 @@ function Libasproduct() {
               className="d-flex gap-3 justify-content-end "
               style={{ marginRight: "5px", marginTop: "12px" }}
             >
-              <img src="/libasring.svg" alt="" style={{ cursor: "pointer" }} />
-              <img src="/libasshare.svg" alt="" style={{ cursor: "pointer" }} />
+              <img
+                src="/libasring.svg"
+                alt=""
+                style={{
+                  cursor: "pointer",
+                  height: "30px",
+                }}
+              />
+              <img
+                src="/libasshare.svg"
+                alt=""
+                style={{
+                  cursor: "pointer",
+                  height: "30px",
+                }}
+              />
               <img
                 src="/libasbandage.svg"
                 alt=""
-                style={{ cursor: "pointer" }}
+                style={{
+                  cursor: "pointer",
+                  height: "30px",
+                }}
               />
               {/* Heart Icon with Like Count */}
-              <div className="d-flex align-items-center gap-1">
+              <div className="d-flex align-items-center gap-1 m-0 p-0">
                 {/* Toggle between outlined and filled heart */}
                 {isLiked ? (
                   <FaHeart
-                    size={35}
+                    size={30}
                     color="#C6AC96"
                     style={{ cursor: "pointer" }}
                     onClick={() => setIsLiked(false)}
@@ -48,6 +110,8 @@ function Libasproduct() {
                     alt=""
                     style={{
                       cursor: "pointer",
+
+                      height: "27px",
                     }}
                     onClick={() => setIsLiked(true)}
                   />
@@ -55,7 +119,7 @@ function Libasproduct() {
 
                 <p
                   style={{
-                    fontSize: "24px",
+                    fontSize: "22px",
                     color: "#808080",
                     marginBottom: "0px",
                   }}
@@ -65,35 +129,117 @@ function Libasproduct() {
                 </p>
               </div>
             </div>
-            <img
+            <motion.img
               src={mainImage}
               alt="Main Product"
               className="img-fluid product-image"
-              style={{ height: "516px", width: "100%", objectFit: "cover" }}
+              style={{
+                height: "500px",
+                width: "100%",
+                objectFit: "contain",
+                cursor: "pointer",
+                marginTop: "2px",
+              }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => openModal(images.indexOf(mainImage))}
             />
-            {/* Image Gallery */}
-            <div className="d-flex image-gallery mt-3 gap-3">
-              {images.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`Thumbnail ${index + 1}`}
-                  className="img-fluid"
-                  onClick={() => setMainImage(image)} // Update the main image on click
+            {/* Image Gallery with Left/Right Arrows */}
+            <div
+              className="d-flex align-items-center mt-3"
+              style={{ justifyContent: "center", position: "relative" }}
+            >
+              {/* Left Arrow */}
+              {thumbnailIndex > 0 && (
+                <MdArrowBack
+                  size={30}
                   style={{
-                    height: "121px",
-                    width: "104px",
-                    border:
-                      mainImage === image
-                        ? "2px solid #C6AC96"
-                        : "1px solid #C6AC96", // Highlight active thumbnail
                     cursor: "pointer",
+                    color: "#C6AC96",
+                    marginRight: "10px",
                   }}
+                  onClick={prevThumbnail}
                 />
-              ))}
+              )}
+
+              {/* Thumbnails */}
+              <div className="d-flex" style={{ gap: "10px" }}>
+                {images
+                  .slice(thumbnailIndex, thumbnailIndex + visibleThumbnails)
+                  .map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="img-fluid"
+                      onClick={() => setMainImage(image)}
+                      style={{
+                        height: "90px",
+                        width: "90px",
+                        border: mainImage === image ? "2px solid #C6AC96" : "",
+                        cursor: "pointer",
+                      }}
+                    />
+                  ))}
+              </div>
+
+              {/* Right Arrow */}
+              {thumbnailIndex + visibleThumbnails < images.length && (
+                <MdArrowForward
+                  size={30}
+                  style={{
+                    cursor: "pointer",
+                    color: "#C6AC96",
+                    marginLeft: "10px",
+                  }}
+                  onClick={nextThumbnail}
+                />
+              )}
             </div>
           </div>
         </div>
+
+        {/* Full-Screen Modal */}
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="full-screen-modal"
+            onClick={closeModal}
+          >
+            <MdClose
+              size={40}
+              className="modal-close-icon"
+              onClick={closeModal}
+            />
+            <MdArrowBack
+              size={50}
+              className="modal-arrow left-arrow"
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+            />
+            <motion.img
+              src={images[currentIndex]}
+              alt="Full View"
+              className="modal-image"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()} // Prevent closing on image click
+            />
+            <MdArrowForward
+              size={50}
+              className="modal-arrow right-arrow"
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+            />
+          </motion.div>
+        )}
 
         {/* Left side for mobile */}
         <Libasproductsleftsidemobielslider images={images} />
@@ -113,7 +259,7 @@ function Libasproduct() {
             <h2
               className="product-right-heading  product-right-heading-mobile mb-0"
               style={{
-                fontSize: "64px",
+                fontSize: "40px",
                 fontWeight: "500",
                 color: "#262626",
               }}
@@ -121,7 +267,7 @@ function Libasproduct() {
               Saint Laurent
             </h2>
             <p
-              style={{ fontSize: "32px", fontWeight: "400", color: "#808080" }}
+              style={{ fontSize: "22px", fontWeight: "400", color: "#808080" }}
               className="product-right-side-subheading mb-0"
             >
               Studded Ankle Boots
@@ -136,7 +282,7 @@ function Libasproduct() {
             >
               <span
                 style={{
-                  fontSize: "24px",
+                  fontSize: "18px",
                   fontWeight: "500",
                   color: "#404040",
                   textDecoration: "line-through",
@@ -146,7 +292,7 @@ function Libasproduct() {
               </span>
               <span
                 style={{
-                  fontSize: "32px",
+                  fontSize: "25px",
                   fontWeight: "500",
                   color: "#BC1010",
                   marginLeft: "15px",
@@ -171,7 +317,7 @@ function Libasproduct() {
             >
               <p
                 style={{
-                  fontSize: "24px",
+                  fontSize: "20px",
                   fontWeight: "400",
                   color: "#808080",
                   lineHeight: "29.26px",
@@ -293,7 +439,7 @@ function Libasproduct() {
                   color: "#808080",
                   fontSize: "14px",
                   fontWeight: "400",
-                  marginTop: "20px",
+                  marginTop: "28px",
                 }}
               >
                 4 interest - free payments of ~ 79 USD with
@@ -353,7 +499,7 @@ function Libasproduct() {
                           fontSize: "14px",
                           fontWeight: "400",
                           color: "#C6AC96",
-                          marginLeft: "10px", // Add some space between the image and the text
+                          marginLeft: "4px", // Add some space between the image and the text
                           marginBottom: "0px", // Ensure no bottom margin
                           marginTop: "0px", // Ensure no top margin
                         }}
@@ -387,7 +533,7 @@ function Libasproduct() {
                         borderRadius: "3px",
                         borderColor: "#D9D9D9",
                         color: "#777777",
-                        width: "81px",
+                        width: "70px",
                         height: "35px",
                       }}
                       whileHover={{ scale: 1.05 }} // Slight scale up on hover
@@ -401,7 +547,7 @@ function Libasproduct() {
                         fontSize: "12px",
                         fontWeight: "400",
                         borderRadius: "3px",
-                        width: "81px",
+                        width: "70px",
                         height: "35px",
                         backgroundColor: "#404040",
                         color: "#FFFFFF",
@@ -451,8 +597,13 @@ function Libasproduct() {
                   </div>
 
                   {/* Rating & See More section for desktop */}
-                  <div className="d-none d-md-flex flex-column">
-                    <div className="d-flex align-items-center">
+                  <div className="d-none d-md-flex flex-column m-0 p-0 ">
+                    <div
+                      className="d-flex align-items-center"
+                      style={{
+                        marginRight: "10px",
+                      }}
+                    >
                       <img src="/libasrate.svg" alt="Rating" />
                       <img src="/libasrate.svg" alt="Rating" />
                       <img src="/libasrate.svg" alt="Rating" />

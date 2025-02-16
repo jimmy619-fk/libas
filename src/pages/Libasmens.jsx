@@ -13,10 +13,9 @@ function Libasmens() {
     <div className=" ">
       {/* sub-header */}
       <div>
-        <Navbar bg="white" expand="lg" className=" p-0 m-0">
+        <Navbar bg="white" expand="lg" className="montserrat-font p-0 m-0">
           <Container
             style={{
-              maxWidth: "90%",
               padding: "7px 0", // Reduce top & bottom space
               paddingBottom: "16px",
             }}
