@@ -6,16 +6,23 @@ import Libasmens from "./pages/Libasmens";
 import Libasheader from "./components/Libasheader";
 import Libasfooter from "./components/Libasfooter";
 import Libasmobilefooter from "./components/Libasmobilefooter";
+import Brandpartners from "./components/Brandpartners";
 function App() {
   return (
     <Router>
+      {/* navbar */}
       <Libasnav />
+      {/* header */}
       <Libasheader />
       <Routes>
-        {/* Basic route */}
+        {/* Mens page */}
         <Route path="/" element={<Libasmens />} />
       </Routes>
+      {/* web footer */}
       <Libasfooter />
+      {/* Brand partners */}
+      <Brandpartners />
+      {/* mobile footer */}
       <Libasmobilefooter />
     </Router>
   );

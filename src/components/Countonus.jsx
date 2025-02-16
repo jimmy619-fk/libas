@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { FaHandHoldingUsd, FaShieldAlt, FaHeadset } from "react-icons/fa";
-import { GiShoppingBag } from "react-icons/gi";
 
 function CountOnUs() {
   const features = [
@@ -9,24 +7,24 @@ function CountOnUs() {
       src: "/trust1.svg",
       title: "Unique Luxury Pieces",
       description:
-        "Extensive luxury collection where each item is unique & high on fashion",
+        "Extensive luxury collection where each </br> item is unique & high on fashion.",
     },
     {
       src: "/trust2.svg",
       title: "Affordable Luxury",
       description:
-        "Stellar luxury pieces at irresistible discounts & with installment purchase options",
+        "Stellar luxury pieces at irresistible </br>  discounts & with installment purchase </br>  options.",
     },
     {
       src: "/trust3.svg",
       title: "Trusted Platform",
       description:
-        "Reliable and secure platform with 25,000+ creations having lifetime authenticity guarantee.",
+        "Reliable and secure platform with </br>  25,000+ creations having lifetime </br>  authenticity guarantee.",
     },
     {
       src: "/trust4.svg",
       title: "Help and Support",
-      description: "What you see is what you get, else money back.",
+      description: "What you see is what you get, else </br> money back",
     },
   ];
 
@@ -40,7 +38,7 @@ function CountOnUs() {
     >
       {/* Section Title */}
       <h2
-        className="  mb-4"
+        className="mb-4"
         style={{
           fontWeight: "400",
           color: "#262626",
@@ -68,7 +66,7 @@ function CountOnUs() {
           >
             <img src={feature.src} alt="" />
             <h4
-              className="mt-3 "
+              className="mt-3"
               style={{
                 fontWeight: "400",
                 color: "#262626",
@@ -78,15 +76,16 @@ function CountOnUs() {
               {feature.title}
             </h4>
             <p
-              className="  mt-2"
+              className="mt-2 trust-section-desc"
               style={{
                 fontWeight: "400",
                 color: "#808080",
-                fontSize: "11px",
+                fontSize: "14px",
               }}
-            >
-              {feature.description}
-            </p>
+              dangerouslySetInnerHTML={{
+                __html: feature.description.replace(/\./g, ".<br />"),
+              }}
+            />
           </Col>
         ))}
       </Row>

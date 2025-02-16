@@ -7,7 +7,7 @@ import { Container } from "react-bootstrap";
 function Libasmobilefooter() {
   return (
     <div
-      className="d-md-none fixed-bottom bg-white py-2 shadow-lg"
+      className="d-md-none fixed-bottom bg-white py-2 shadow-lg "
       style={{
         borderTop: "1px solid #E0E0E0",
       }}

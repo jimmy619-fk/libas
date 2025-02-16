@@ -35,9 +35,9 @@ body {
     max-width: 270px !important;
   }
   /* hide nav web */
-  .navbar-web {
+  /* .navbar-web {
     display: none !important;
-  }
+  } */
 
   .product-right-side {
     padding-top: 12px !important;
@@ -59,10 +59,21 @@ body {
   .terms-conditiopns {
     margin-left: 2px !important;
   }
+  .trust-section-desc {
+    font-size: 10px !important;
+  }
 }
 
 /* hide product left slider web till 1000*/
 @media only screen and (max-width: 1000px) {
+  /* addign on mobile side so content is visible */
+  body {
+    padding-bottom: 60px !important;
+  }
+  /* hide nav web */
+  .navbar-web {
+    display: none !important;
+  }
   .libas-web-slider-container {
     display: none !important;
   }
@@ -136,7 +147,7 @@ body {
     display: none !important;
   }
 }
-@media only screen and (min-width: 1114px) and (max-width: 6024px) {
+@media only screen and (min-width: 1000px) and (max-width: 6024px) {
   .navbar-mobile {
     display: none !important;
   }

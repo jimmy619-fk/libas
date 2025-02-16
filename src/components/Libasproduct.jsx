@@ -154,6 +154,14 @@ function Libasproduct() {
               >
                 311 USD
               </span>
+              <img
+                src="/info2.svg"
+                alt=""
+                style={{
+                  cursor: "pointer",
+                  marginLeft: "7px",
+                }}
+              />
             </div>
             <div
               className="col"
@@ -679,7 +687,7 @@ function Libasproduct() {
                     style={{
                       backgroundColor: "#C6AC96",
                       color: "#fff",
-                      width: "64px",
+                      width: "70px",
                       height: "28px",
                       borderRadius: "2px",
                       border: "none",

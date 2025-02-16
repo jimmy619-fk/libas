@@ -72,23 +72,29 @@ function Libasnav() {
 
           {/* Right Side Nav Links */}
           <Nav className="ms-auto d-flex align-items-center">
-            <motion.button
-              variant="light"
-              className="me-2 border-0 helvetica-font sell-item-btn"
-              style={{
-                backgroundColor: "#C4A484",
-                color: "white",
-                height: "40px",
-                fontSize: "16px",
-                fontWeight: "400",
-                borderRadius: "3px",
-                width: "119px",
-              }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
+              href="https://libas.ae/how-to-sell"
+              style={{ textDecoration: "none" }}
             >
-              Sell an item
-            </motion.button>
+              <motion.button
+                variant="light"
+                className="me-2 border-0 helvetica-font sell-item-btn"
+                style={{
+                  backgroundColor: "#C4A484",
+                  color: "white",
+                  height: "40px",
+                  fontSize: "16px",
+                  fontWeight: "400",
+                  borderRadius: "3px",
+                  width: "119px",
+                  cursor: "pointer",
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Sell an item
+              </motion.button>
+            </a>
 
             <Nav.Link
               href="#"
@@ -111,16 +117,27 @@ function Libasnav() {
             className="d-flex align-items-center"
             style={{ marginLeft: "20px" }}
           >
-            <img
+            <motion.img
               src="/libascart.svg"
               alt="cart"
               className="hover-zoom"
               style={{ marginRight: "10px", cursor: "pointer" }}
+              initial={{ opacity: 0, y: -10 }} // Fade-in and slide down on mount
+              animate={{ opacity: 1, y: 0 }} // Bring to normal position
+              transition={{ duration: 0.5, ease: "easeOut" }} // Smooth effect
+              whileHover={{ scale: 1.1 }} // Slight zoom on hover
+              whileTap={{ scale: 0.9 }} // Slight bounce when clicked
             />
-            <img
+
+            <motion.img
               src="/libasprofile.svg"
               alt="profile"
               style={{ cursor: "pointer" }}
+              initial={{ opacity: 0, y: -10 }} // Fade-in and slide down on mount
+              animate={{ opacity: 1, y: 0 }} // Bring to normal position
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }} // Slight delay for staggered effect
+              whileHover={{ scale: 1.1 }} // Slight zoom on hover
+              whileTap={{ scale: 0.9 }} // Slight bounce when clicked
             />
           </div>
         </Container>
@@ -183,13 +200,19 @@ function Libasnav() {
             </a>
           </li>
           <li>
-            <a href="/sell">Sell an item</a>
+            <a href="https://libas.ae/products?">SHOP ALL</a>
           </li>
           <li>
-            <a href="/sign-in">Sign In</a>
+            <a href="https://libas.ae/how-to-sell">HOW TO SELL</a>
           </li>
           <li>
-            <a href="/sign-up">Sign Up</a>
+            <a href="https://libas.ae/About-US">ABOUT US</a>
+          </li>
+          <li>
+            <a href="/sign-in">SIGN IN</a>
+          </li>
+          <li>
+            <a href="/sign-up">SIGN UP</a>
           </li>
         </ul>
       </div>
