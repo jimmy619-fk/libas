@@ -484,6 +484,10 @@ function Libasproduct() {
                 src="/libasseller.svg" // Placeholder for seller profile image
                 alt="Seller Profile"
                 className="rounded-circle"
+                style={{
+                  height: "100px",
+                  width: "100px",
+                }}
               />
 
               {/* Seller Information */}
@@ -573,7 +577,7 @@ function Libasproduct() {
                   <div className="d-flex flex-column">
                     <p
                       style={{
-                        fontSize: "12px",
+                        fontSize: "11px",
                         fontWeight: "400",
                         color: "#808080",
                         marginBottom: "2px",
@@ -594,7 +598,7 @@ function Libasproduct() {
                     <p
                       style={{
                         color: "#808080",
-                        fontSize: "12px",
+                        fontSize: "11px",
                       }}
                     >
                       44 items sold
