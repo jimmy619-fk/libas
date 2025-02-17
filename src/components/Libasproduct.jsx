@@ -183,7 +183,7 @@ function Libasproduct() {
                 style={{
                   position: "absolute",
                   top: "50%",
-                  left: "10px",
+                  left: "-10px",
                   transform: "translateY(-50%)",
                   cursor: "pointer",
                   color: "#C6AC96",
@@ -198,7 +198,7 @@ function Libasproduct() {
                 alt="Main Product"
                 className="img-fluid product-image"
                 style={{
-                  height: "500px",
+                  height: "430px",
                   width: "100%",
                   objectFit: "contain",
                   cursor: "pointer",
@@ -215,7 +215,7 @@ function Libasproduct() {
                 style={{
                   position: "absolute",
                   top: "50%",
-                  right: "10px",
+                  right: "-10px",
                   transform: "translateY(-50%)",
                   cursor: "pointer",
                   color: "#C6AC96",
