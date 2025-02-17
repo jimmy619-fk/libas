@@ -251,7 +251,7 @@ body {
   color: #c6ac96;
 }
 
-/* Arrows */
+/*---------------------- Arrows for product detail expand modal--------------------------- */
 .modal-arrow {
   position: absolute;
   color: #c6ac96;
@@ -270,7 +270,8 @@ body {
 .right-arrow {
   right: 40px;
 }
-
+/* when frequency selecting any image dont do blue */
+/* Browsers apply an overlay effect when an image is selected. Try disabling selection using CSS: */
 .product-image {
   user-select: none;
   -webkit-user-select: none;
