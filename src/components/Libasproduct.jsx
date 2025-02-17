@@ -21,13 +21,12 @@ function Libasproduct() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
-
+  const visibleThumbnails = 4; // Number of thumbnails visible at a time
   // Open Modal
   const openModal = (index) => {
     setCurrentIndex(index);
     setIsModalOpen(true);
   };
-
   // Close Modal
   const closeModal = () => {
     setIsModalOpen(false);
@@ -35,31 +34,53 @@ function Libasproduct() {
 
   // Navigate Left
   const prevImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
+    const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    setMainImage(images[newIndex]);
   };
 
   // Navigate Right
   const nextImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+    const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    setMainImage(images[newIndex]);
   };
-  const visibleThumbnails = 4; // Number of thumbnails visible at a time
 
+  // Thumbnail navigation that changes the main image when arrows are clicked
   const nextThumbnail = () => {
     if (thumbnailIndex + visibleThumbnails < images.length) {
-      setThumbnailIndex(thumbnailIndex + 1);
+      // Update thumbnail slice
+      const newThumbnailIndex = thumbnailIndex + 1;
+      setThumbnailIndex(newThumbnailIndex);
+
+      // Always move to the next image when clicking the right arrow
+      const newIndex = currentIndex + 1;
+      if (newIndex < images.length) {
+        setCurrentIndex(newIndex);
+        setMainImage(images[newIndex]);
+      }
     }
   };
 
   const prevThumbnail = () => {
     if (thumbnailIndex > 0) {
-      setThumbnailIndex(thumbnailIndex - 1);
+      // Update thumbnail slice
+      const newThumbnailIndex = thumbnailIndex - 1;
+      setThumbnailIndex(newThumbnailIndex);
+
+      // Always move to the previous image when clicking the left arrow
+      const newIndex = currentIndex - 1;
+      if (newIndex >= 0) {
+        setCurrentIndex(newIndex);
+        setMainImage(images[newIndex]);
+      }
     }
   };
-
+  // Handle thumbnail click
+  const handleThumbnailClick = (image, index) => {
+    setMainImage(image);
+    setCurrentIndex(index + thumbnailIndex);
+  };
   // ESC ,left and right keys
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -81,12 +102,12 @@ function Libasproduct() {
   }, [isModalOpen, currentIndex]);
   return (
     <div
-      className="container  mt-2 border-top product-detail-border"
+      className="container   product-detail-border"
       style={{
         maxWidth: "90%",
       }}
     >
-      <div className="row">
+      <div className="row ">
         {/* Left Section (Product Images)   */}
         <div className="col-md-6 libas-web-slider-container">
           <div className="product-image-wrapper">
@@ -191,21 +212,27 @@ function Libasproduct() {
               <div className="d-flex" style={{ gap: "10px" }}>
                 {images
                   .slice(thumbnailIndex, thumbnailIndex + visibleThumbnails)
-                  .map((image, index) => (
-                    <img
-                      key={index}
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      className="img-fluid"
-                      onClick={() => setMainImage(image)}
-                      style={{
-                        height: "90px",
-                        width: "90px",
-                        border: mainImage === image ? "2px solid #C6AC96" : "",
-                        cursor: "pointer",
-                      }}
-                    />
-                  ))}
+                  .map((image, index) => {
+                    const actualIndex = index + thumbnailIndex;
+                    return (
+                      <img
+                        key={actualIndex}
+                        src={image}
+                        alt={`Thumbnail ${actualIndex + 1}`}
+                        className="img-fluid"
+                        onClick={() => handleThumbnailClick(image, index)}
+                        style={{
+                          height: "90px",
+                          width: "90px",
+                          border:
+                            currentIndex === actualIndex
+                              ? "2px solid #C6AC96"
+                              : "",
+                          cursor: "pointer",
+                        }}
+                      />
+                    );
+                  })}
               </div>
 
               {/* Right Arrow */}
@@ -458,13 +485,13 @@ function Libasproduct() {
               </motion.button>
             </div>
             {/* Tabby Payment Info */}
-            <div className="d-flex align-items-center gap-2 mb-2 mx-auto">
+            <div className="interest-pay d-flex align-items-center gap-2 mb-2 mx-auto">
               <span
                 style={{
                   color: "#808080",
                   fontSize: "14px",
                   fontWeight: "400",
-                  marginTop: "28px",
+                  marginTop: "23px",
                 }}
               >
                 4 interest - free payments of ~ 79 USD with
@@ -490,7 +517,7 @@ function Libasproduct() {
             </div>
             {/* seller */}
             <div
-              className="seller-info d-none d-md-flex mt-2  flex-col align-items-center "
+              className="seller-info seller-info-ipad d-none d-md-flex   flex-col align-items-center "
               style={{
                 border: "1px solid #00000012",
                 borderRadius: "5px",
@@ -501,7 +528,7 @@ function Libasproduct() {
             >
               {/* Seller Profile Picture */}
               <img
-                src="/libasseller.svg" // Placeholder for seller profile image
+                src="/libasseller.svg"
                 alt="Seller Profile"
                 className="rounded-circle"
                 style={{
@@ -519,7 +546,7 @@ function Libasproduct() {
                         src="/libasverify.svg"
                         alt="Trusted Seller Icon"
                         style={{
-                          height: "20px", // Adjust image height
+                          height: "20px",
                           verticalAlign: "middle",
                         }}
                       />

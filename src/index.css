@@ -23,6 +23,9 @@ body {
 
 /* For iPad Pro and below devices (max-width 1024px) */
 @media only screen and (max-width: 1114px) {
+  .seller-info-ipad {
+    margin-top: 20px !important;
+  }
   .sell-item-btn {
     width: 107px !important;
   }
@@ -61,6 +64,11 @@ body {
   }
   .trust-section-desc {
     font-size: 10px !important;
+  }
+  /* header  for ipads */
+  .header-font {
+    font-size: 14px !important;
+    gap: 18px !important;
   }
 }
 
