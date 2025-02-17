@@ -21,7 +21,6 @@ function Libasproduct() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
-  const visibleThumbnails = 8; // Number of thumbnails visible at a time
 
   // Open Modal
   const openModal = (index) => {
@@ -47,36 +46,6 @@ function Libasproduct() {
     setMainImage(images[newIndex]);
   };
 
-  // Thumbnail navigation that changes the main image when arrows are clicked
-  const nextThumbnail = () => {
-    if (thumbnailIndex + visibleThumbnails < images.length) {
-      // Update thumbnail slice
-      const newThumbnailIndex = thumbnailIndex + 1;
-      setThumbnailIndex(newThumbnailIndex);
-
-      // Always move to the next image when clicking the right arrow
-      const newIndex = currentIndex + 1;
-      if (newIndex < images.length) {
-        setCurrentIndex(newIndex);
-        setMainImage(images[newIndex]);
-      }
-    }
-  };
-
-  const prevThumbnail = () => {
-    if (thumbnailIndex > 0) {
-      // Update thumbnail slice
-      const newThumbnailIndex = thumbnailIndex - 1;
-      setThumbnailIndex(newThumbnailIndex);
-
-      // Always move to the previous image when clicking the left arrow
-      const newIndex = currentIndex - 1;
-      if (newIndex >= 0) {
-        setCurrentIndex(newIndex);
-        setMainImage(images[newIndex]);
-      }
-    }
-  };
   // Handle thumbnail click
   const handleThumbnailClick = (image, index) => {
     setMainImage(image);
