@@ -270,3 +270,10 @@ body {
 .right-arrow {
   right: 40px;
 }
+
+.product-image {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
