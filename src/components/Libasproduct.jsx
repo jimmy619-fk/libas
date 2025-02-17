@@ -7,11 +7,11 @@ import { MdClose, MdArrowBack, MdArrowForward } from "react-icons/md";
 function Libasproduct() {
   // Array of product images
   const images = [
+    "sample2.jpg",
     "libasshoes3.png",
     "libasshoes1.svg",
     "sample4.jpg",
     "sample1.jpg",
-    "sample2.jpg",
     "sample6.jpg",
   ];
 
@@ -21,7 +21,8 @@ function Libasproduct() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
-  const visibleThumbnails = 4; // Number of thumbnails visible at a time
+  const visibleThumbnails = 8; // Number of thumbnails visible at a time
+
   // Open Modal
   const openModal = (index) => {
     setCurrentIndex(index);
@@ -175,78 +176,98 @@ function Libasproduct() {
                 </p>
               </div>
             </div>
-            <motion.img
-              src={mainImage}
-              alt="Main Product"
-              className="img-fluid product-image"
-              style={{
-                height: "500px",
-                width: "100%",
-                objectFit: "contain",
-                cursor: "pointer",
-                marginTop: "2px",
-              }}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => openModal(images.indexOf(mainImage))}
-            />
-            {/* Image Gallery with Left/Right Arrows */}
-            <div
-              className="d-flex align-items-center mt-3"
-              style={{ justifyContent: "center", position: "relative" }}
-            >
+            <div style={{ position: "relative", width: "100%" }}>
               {/* Left Arrow */}
-              {thumbnailIndex > 0 && (
-                <MdArrowBack
-                  size={30}
-                  style={{
-                    cursor: "pointer",
-                    color: "#C6AC96",
-                    marginRight: "10px",
-                  }}
-                  onClick={prevThumbnail}
-                />
-              )}
+              <MdArrowBack
+                size={40}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "10px",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                  color: "#C6AC96",
+                  zIndex: 2,
+                }}
+                onClick={prevImage}
+              />
 
-              {/* Thumbnails */}
-              <div className="d-flex" style={{ gap: "10px" }}>
-                {images
-                  .slice(thumbnailIndex, thumbnailIndex + visibleThumbnails)
-                  .map((image, index) => {
-                    const actualIndex = index + thumbnailIndex;
-                    return (
-                      <img
-                        key={actualIndex}
-                        src={image}
-                        alt={`Thumbnail ${actualIndex + 1}`}
-                        className="img-fluid"
-                        onClick={() => handleThumbnailClick(image, index)}
-                        style={{
-                          height: "90px",
-                          width: "90px",
-                          border:
-                            currentIndex === actualIndex
-                              ? "2px solid #C6AC96"
-                              : "",
-                          cursor: "pointer",
-                        }}
-                      />
-                    );
-                  })}
-              </div>
+              {/* Main Image */}
+              <motion.img
+                src={mainImage}
+                alt="Main Product"
+                className="img-fluid product-image"
+                style={{
+                  height: "500px",
+                  width: "100%",
+                  objectFit: "contain",
+                  cursor: "pointer",
+                  marginTop: "2px",
+                }}
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => openModal(images.indexOf(mainImage))}
+              />
 
               {/* Right Arrow */}
-              {thumbnailIndex + visibleThumbnails < images.length && (
-                <MdArrowForward
-                  size={30}
-                  style={{
-                    cursor: "pointer",
-                    color: "#C6AC96",
-                    marginLeft: "10px",
-                  }}
-                  onClick={nextThumbnail}
-                />
-              )}
+              <MdArrowForward
+                size={40}
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  right: "10px",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                  color: "#C6AC96",
+                  zIndex: 2,
+                }}
+                onClick={nextImage}
+              />
+            </div>
+
+            {/* Image Gallery Tiles */}
+            <div
+              className="d-flex align-items-center mt-3"
+              style={{ position: "relative" }}
+            >
+              {/* Thumbnails Grid */}
+              <div
+                className="thumbnail-grid"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(5, 1fr)",
+                  gap: "10px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "100%",
+                }}
+              >
+                {images?.map((image, index) => {
+                  const actualIndex = index + thumbnailIndex;
+                  return (
+                    <img
+                      key={actualIndex}
+                      src={image}
+                      alt={`Thumbnail ${actualIndex + 1}`}
+                      className="img-fluid"
+                      onClick={() => handleThumbnailClick(image, actualIndex)}
+                      style={{
+                        height: "80px",
+                        width: "80px",
+                        border:
+                          currentIndex === actualIndex
+                            ? "2px solid #C6AC96"
+                            : "",
+                        cursor: "pointer",
+                        opacity: currentIndex === actualIndex ? 1 : 0.5, // Reduce opacity for inactive images
+                        filter:
+                          currentIndex === actualIndex ? "none" : "blur(2px)", // Blur effect for inactive images
+                        transition: "opacity 0.3s ease, filter 0.3s ease", // Smooth transition
+                      }}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
