@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Libasproductsleftsidemobielslider from "./Libasproductsleftsidemobielslider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -59,6 +59,26 @@ function Libasproduct() {
       setThumbnailIndex(thumbnailIndex - 1);
     }
   };
+
+  // ESC ,left and right keys
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (!isModalOpen) return;
+
+      if (event.key === "ArrowLeft") {
+        prevImage();
+      } else if (event.key === "ArrowRight") {
+        nextImage();
+      } else if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isModalOpen, currentIndex]);
   return (
     <div
       className="container  mt-2 border-top product-detail-border"
@@ -80,7 +100,7 @@ function Libasproduct() {
                 alt=""
                 style={{
                   cursor: "pointer",
-                  height: "30px",
+                  height: "20px",
                 }}
               />
               <img
@@ -88,7 +108,7 @@ function Libasproduct() {
                 alt=""
                 style={{
                   cursor: "pointer",
-                  height: "30px",
+                  height: "20px",
                 }}
               />
               <img
@@ -96,7 +116,7 @@ function Libasproduct() {
                 alt=""
                 style={{
                   cursor: "pointer",
-                  height: "30px",
+                  height: "20px",
                 }}
               />
               {/* Heart Icon with Like Count */}
@@ -104,7 +124,7 @@ function Libasproduct() {
                 {/* Toggle between outlined and filled heart */}
                 {isLiked ? (
                   <FaHeart
-                    size={30}
+                    size={20}
                     color="#C6AC96"
                     style={{ cursor: "pointer" }}
                     onClick={() => setIsLiked(false)}
@@ -116,7 +136,7 @@ function Libasproduct() {
                     style={{
                       cursor: "pointer",
 
-                      height: "27px",
+                      height: "20px",
                     }}
                     onClick={() => setIsLiked(true)}
                   />
@@ -124,7 +144,7 @@ function Libasproduct() {
 
                 <p
                   style={{
-                    fontSize: "22px",
+                    fontSize: "14px",
                     color: "#808080",
                     marginBottom: "0px",
                   }}
@@ -145,7 +165,7 @@ function Libasproduct() {
                 cursor: "pointer",
                 marginTop: "2px",
               }}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => openModal(images.indexOf(mainImage))}
             />
@@ -470,7 +490,7 @@ function Libasproduct() {
             </div>
             {/* seller */}
             <div
-              className="seller-info d-none d-md-flex mt-3  flex-col align-items-center "
+              className="seller-info d-none d-md-flex mt-2  flex-col align-items-center "
               style={{
                 border: "1px solid #00000012",
                 borderRadius: "5px",
