@@ -38,7 +38,7 @@ function Libasproductdescription() {
               style={{
                 fontSize: "24px",
                 fontWeight: "500",
-                marginTop: "35px",
+                marginTop: "30px",
               }}
             >
               Details
