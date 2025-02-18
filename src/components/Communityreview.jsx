@@ -13,7 +13,7 @@ function Communityreview() {
           padding: "24px",
           margin: "0 auto",
 
-          maxWidth: "91%",
+          maxWidth: "90%",
         }}
       >
         {/* Community Reviews Heading */}
