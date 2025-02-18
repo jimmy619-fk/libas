@@ -127,7 +127,7 @@ function Libasproductaccordion() {
 
       <div>
         <p
-          className="montserrat-font font-light"
+          className="montserrat-font font-light report-text"
           style={{
             fontSize: "15px",
             color: "#777777",
@@ -140,7 +140,7 @@ function Libasproductaccordion() {
 
       {/* Report Button */}
       <motion.button
-        className="   mt-1"
+        className=" report-btn-mobile  mt-1"
         style={{
           border: "4px",
           backgroundColor: "#C6AC96",

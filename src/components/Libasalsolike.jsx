@@ -122,10 +122,12 @@ function Libasalsolike() {
       style={{ margin: "0 auto" }}
     >
       <div
-        className="d-flex justify-content-between align-items-center w-100"
+        className="you-may-also-like-top d-flex justify-content-between align-items-center w-100"
         style={{
           fontSize: "40px",
           marginTop: "40px",
+          // heading padding to little right side
+          paddingLeft: "10px",
         }}
       >
         <h3
@@ -138,7 +140,7 @@ function Libasalsolike() {
         </h3>
 
         <div
-          className="mb-0"
+          className="mb-0 d-none d-md-block"
           style={{
             cursor: "pointer",
           }}
@@ -290,6 +292,23 @@ function Libasalsolike() {
           </div>
         ))}
       </Slider>
+
+      {/* For mobile side */}
+      <div
+        className="mb-0 d-block text-center d-md-none"
+        style={{
+          cursor: "pointer",
+        }}
+      >
+        <img
+          src="/viewallmobile.svg"
+          alt="View All"
+          style={{
+            cursor: "pointer",
+            marginTop: "20px",
+          }}
+        />
+      </div>
     </div>
   );
 }

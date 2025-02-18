@@ -12,7 +12,7 @@ function Libasproductdescription() {
       <div className="row">
         {/* Left Section: Description */}
         <div className="col-lg-6 col-md-12 montserrat-font">
-          <div className="description-section">
+          <div className="description-section description-left-section-mobile">
             <h4
               style={{
                 fontSize: "24px",

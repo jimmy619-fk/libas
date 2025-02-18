@@ -5,7 +5,7 @@ function Lookingforsomethingelse() {
   return (
     <div className="container ">
       <div
-        className=" mt-4 montserrat-font"
+        className="text-center text-md-start  mt-4 montserrat-font"
         style={{
           backgroundColor: "#FFFBF7",
           padding: "20px",
@@ -34,7 +34,8 @@ function Lookingforsomethingelse() {
           }}
         >
           Not the ideal size or color? Don’t worry! Get notified about similar
-          listings and <br /> never miss out on what you love!
+          listings and <br className="d-none d-md-block" /> never miss out on
+          what you love!
         </p>
         <motion.button
           className="btn"

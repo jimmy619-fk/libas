@@ -147,15 +147,16 @@ function Libasproduct() {
               border: "0.5px solid #C6AC96",
             }}
           >
-            {/* Main product image */}
+            {/* Main product image icons */}
             <div
-              className="d-flex gap-3 justify-content-end "
+              className="d-flex gap-3 justify-content-end image-remove-blue-effect"
               style={{
-                marginRight: "5px",
-                marginTop: "12px",
+                marginRight: "16px",
+                marginTop: "14px",
               }}
             >
               <img
+                className="image-remove-blue-effect"
                 src="/libasring.svg"
                 alt=""
                 style={{
@@ -164,6 +165,7 @@ function Libasproduct() {
                 }}
               />
               <img
+                className="image-remove-blue-effect"
                 src="/libasshare.svg"
                 alt=""
                 style={{
@@ -172,6 +174,7 @@ function Libasproduct() {
                 }}
               />
               <img
+                className="image-remove-blue-effect"
                 src="/libasbandage.svg"
                 alt=""
                 style={{
@@ -214,11 +217,12 @@ function Libasproduct() {
               </div>
             </div>
 
-            {/* Left Product details Image section */}
+            {/* Left Product details Image section Main image */}
             <div
               style={{
                 position: "relative",
                 width: "80%",
+                // width: "100%",
                 margin: "0 auto",
               }}
             >
@@ -249,13 +253,14 @@ function Libasproduct() {
               <motion.img
                 src={mainImage}
                 alt="Main Product"
-                className="img-fluid product-image"
+                className="img-fluid image-remove-blue-effect"
                 style={{
                   height: "460px",
                   objectFit: "contain",
                   cursor: "pointer",
                   marginTop: "2px ",
                   outline: "none",
+                  width: "100%",
                 }}
                 whileHover={{ scale: 0.98 }}
                 whileTap={{ scale: 0.98 }}
@@ -292,7 +297,11 @@ function Libasproduct() {
           {/* Image Gallery Tiles */}
           <div
             className="d-flex align-items-center mt-3"
-            style={{ justifyContent: "center", position: "relative" }}
+            style={{
+              justifyContent: "center",
+              position: "relative",
+              top: "7px",
+            }}
           >
             {/* Thumbnails */}
             <div className="d-flex" style={{ gap: "12px" }}>
@@ -896,7 +905,7 @@ function Libasproduct() {
                             borderRadius: "4px",
                             borderColor: "#D9D9D9",
                             color: "#777777",
-                            padding: "7px 6px",
+                            padding: "8px 9px",
                           }}
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
@@ -910,7 +919,7 @@ function Libasproduct() {
                             fontWeight: "400",
                             borderRadius: "4px",
                             outline: "none",
-                            padding: "7px 6px",
+                            padding: "8px 9px",
                             backgroundColor: "#404040",
                             color: "#FFFFFF",
                           }}

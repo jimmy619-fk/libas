@@ -122,14 +122,16 @@ function Libasmorefromthisseller() {
       style={{ margin: "0 auto" }}
     >
       <div
-        className="d-flex justify-content-between align-items-center w-100"
+        className="more-from-this-seller-top d-flex justify-content-between align-items-center w-100"
         style={{
           fontSize: "40px",
           marginTop: "60px",
+          // heading padding to little right side
+          paddingLeft: "10px",
         }}
       >
         <h3
-          className="fw-bold also-like-heading m-0"
+          className="fw-bold also-like-heading p-0 m-0"
           style={{
             fontSize: "35px",
           }}
@@ -138,7 +140,7 @@ function Libasmorefromthisseller() {
         </h3>
 
         <div
-          className="mb-0"
+          className="mb-0 d-none d-md-block"
           style={{
             cursor: "pointer",
           }}
@@ -290,6 +292,23 @@ function Libasmorefromthisseller() {
           </div>
         ))}
       </Slider>
+
+      {/* For mobile side */}
+      <div
+        className="mb-0 d-block text-center d-md-none"
+        style={{
+          cursor: "pointer",
+        }}
+      >
+        <img
+          src="/viewallmobile.svg"
+          alt="View All"
+          style={{
+            cursor: "pointer",
+            marginTop: "20px",
+          }}
+        />
+      </div>
     </div>
   );
 }
