@@ -27,7 +27,8 @@ function Libasproduct() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
-  const visibleThumbnails = 4;
+  const [visibleThumbnails, setVisibleThumbnails] = useState(5);
+
   // Open Modal
   const openModal = (index) => {
     setCurrentIndex(index);
@@ -112,6 +113,24 @@ function Libasproduct() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isModalOpen, currentIndex]);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (window.innerWidth < 1114) {
+  //       setVisibleThumbnails(5);
+  //     } else {
+  //       setVisibleThumbnails(5);
+  //     }
+  //   };
+
+  //   window.addEventListener("resize", handleResize);
+  //   return () => window.removeEventListener("resize", handleResize);
+  // }, [visibleThumbnails]);
+
+  // useEffect(() => {
+  //   setVisibleThumbnails(window.innerWidth < 1114 ? 5 : 5);
+  // }, []);
+
   return (
     <div
       className="container   product-detail-border"
@@ -283,14 +302,15 @@ function Libasproduct() {
                   const actualIndex = index + thumbnailIndex;
                   return (
                     <img
+                      id="thumnails-ipad"
                       key={actualIndex}
                       src={image}
                       alt={`Thumbnail ${actualIndex + 1}`}
-                      className="img-fluid"
+                      className="img-fluid "
                       onClick={() => handleThumbnailClick(image, index)}
                       style={{
-                        height: "90px",
-                        width: "100px",
+                        height: "119.1px",
+                        width: "136px",
                         border:
                           currentIndex === actualIndex
                             ? "1px solid #C6AC96"

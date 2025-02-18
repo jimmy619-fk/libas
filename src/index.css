@@ -70,6 +70,12 @@ body {
     font-size: 14px !important;
     gap: 18px !important;
   }
+
+  /* for product details thumbnails */
+  #thumnails-ipad {
+    height: 90px !important;
+    width: 77px !important;
+  }
 }
 
 /* hide product left slider web till 1000*/
