@@ -230,6 +230,7 @@ function Libasproduct() {
               <img
                 src="/leftnew.svg"
                 alt=""
+                className="product-detail-carousel-left-arrow"
                 style={{
                   position: "absolute",
                   top: "50%",
@@ -271,6 +272,7 @@ function Libasproduct() {
               <img
                 src="/rightnew.svg"
                 alt=""
+                className="product-detail-carousel-right-arrow"
                 style={{
                   position: "absolute",
                   top: "50%",

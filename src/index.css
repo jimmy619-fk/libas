@@ -192,7 +192,16 @@ body {
     display: none !important;
   }
 }
+/* on bigger screens */
 
+@media only screen and (min-width: 1114px) and (max-width: 6024px) {
+  .product-detail-carousel-left-arrow {
+    left: -45px !important;
+  }
+  .product-detail-carousel-right-arrow {
+    right: -45px !important;
+  }
+}
 /* Hidden by default */
 .mobile-menu {
   display: none;
