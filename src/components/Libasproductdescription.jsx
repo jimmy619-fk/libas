@@ -88,7 +88,7 @@ function Libasproductdescription() {
         </div>
 
         {/* Right Section: Quality Control */}
-        <div className="quality-control-right-section-mobile col-lg-5 col-md-12  p-0">
+        <div className="quality-control-right-section-mobile col-lg-6 col-md-12 p-0 ">
           {/* accordion */}
           <Libasproductaccordion />
         </div>

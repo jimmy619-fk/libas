@@ -129,7 +129,7 @@ function Libasalsolike() {
         className="you-may-also-like-top d-flex justify-content-between align-items-center w-100"
         style={{
           fontSize: "40px",
-          marginTop: "25px",
+          marginTop: "15px",
         }}
       >
         <h3

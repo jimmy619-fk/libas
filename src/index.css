@@ -216,7 +216,7 @@ body {
     margin-top: 1px !important;
   }
   .you-may-also-like-top {
-    margin-top: 1px !important;
+    margin-top: -20px !important;
   }
   .report-text {
     font-size: 12px !important;

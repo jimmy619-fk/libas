@@ -13,9 +13,9 @@ function Libasproductaccordion() {
     }
   };
   return (
-    <div className="quality-section montserrat-font mt-3 mt-md-0 quality-control-right-section-mobile">
+    <div className="quality-section montserrat-font mt-3 mt-md-0 quality-control-right-section-mobile w-100">
       {/* Quality Control Section */}
-      <div className="mb-4">
+      <div className="mb-4 ">
         <button
           className="w-100 d-flex justify-content-between align-items-center px-4 py-3 fs-5 fs-md-4  "
           style={{
