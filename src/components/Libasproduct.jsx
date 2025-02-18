@@ -27,7 +27,7 @@ function Libasproduct() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [thumbnailIndex, setThumbnailIndex] = useState(0);
-
+  const visibleThumbnails = 4;
   // Open Modal
   const openModal = (index) => {
     setCurrentIndex(index);
@@ -43,19 +43,55 @@ function Libasproduct() {
     const newIndex = currentIndex === 0 ? images.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     setMainImage(images[newIndex]);
-  };
 
+    // Ensure the current image is visible in thumbnails
+    if (newIndex < thumbnailIndex) {
+      setThumbnailIndex(newIndex);
+    } else if (newIndex >= thumbnailIndex + visibleThumbnails) {
+      setThumbnailIndex(newIndex - visibleThumbnails + 1);
+    }
+  };
   // Navigate Right
   const nextImage = () => {
     const newIndex = currentIndex === images.length - 1 ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
     setMainImage(images[newIndex]);
+
+    // Ensure the current image is visible in thumbnails
+    if (newIndex < thumbnailIndex) {
+      setThumbnailIndex(newIndex);
+    } else if (newIndex >= thumbnailIndex + visibleThumbnails) {
+      setThumbnailIndex(newIndex - visibleThumbnails + 1);
+    }
   };
 
   // Handle thumbnail click
   const handleThumbnailClick = (image, index) => {
     setMainImage(image);
     setCurrentIndex(index + thumbnailIndex);
+  };
+
+  // Thumbnail navigation that changes the main image when arrows are clicked
+  const nextThumbnail = () => {
+    if (thumbnailIndex + visibleThumbnails < images.length) {
+      // Update thumbnail slice
+      const newThumbnailIndex = thumbnailIndex + 1;
+      setThumbnailIndex(newThumbnailIndex);
+
+      // Only update current image if we're using arrows to navigate thumbnails
+      // Don't force image change when just scrolling thumbnails
+    }
+  };
+
+  const prevThumbnail = () => {
+    if (thumbnailIndex > 0) {
+      // Update thumbnail slice
+      const newThumbnailIndex = thumbnailIndex - 1;
+      setThumbnailIndex(newThumbnailIndex);
+
+      // Only update current image if we're using arrows to navigate thumbnails
+      // Don't force image change when just scrolling thumbnails
+    }
   };
   // ESC ,left and right keys
   useEffect(() => {
@@ -85,12 +121,20 @@ function Libasproduct() {
     >
       <div className="row ">
         {/* Left Section (Product Images)   */}
-        <div className="col-md-6 libas-web-slider-container">
-          <div className="product-image-wrapper">
+        <div className="col-md-6 libas-web-slider-container p-2">
+          <div
+            className="product-image-wrapper"
+            style={{
+              border: "0.5px solid #C6AC96",
+            }}
+          >
             {/* Main product image */}
             <div
               className="d-flex gap-3 justify-content-end "
-              style={{ marginRight: "5px", marginTop: "12px" }}
+              style={{
+                marginRight: "5px",
+                marginTop: "12px",
+              }}
             >
               <img
                 src="/libasring.svg"
@@ -132,7 +176,6 @@ function Libasproduct() {
                     alt=""
                     style={{
                       cursor: "pointer",
-
                       height: "20px",
                     }}
                     onClick={() => setIsLiked(true)}
@@ -151,35 +194,36 @@ function Libasproduct() {
                 </p>
               </div>
             </div>
-            <div style={{ position: "relative", width: "100%" }}>
+
+            {/* Left Product details Image section */}
+            <div
+              style={{
+                position: "relative",
+                width: "80%",
+                margin: "0 auto",
+              }}
+            >
               {/* Left Arrow */}
-              {/* <MdArrowBack
-                size={40}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "-10px",
-                  transform: "translateY(-50%)",
-                  cursor: "pointer",
-                  color: "#C6AC96",
-                  zIndex: 2,
-                }}
-                onClick={prevImage}
-              /> */}
               <img
-                src="/leftarr.svg"
+                src="/leftnew.svg"
                 alt=""
                 style={{
                   position: "absolute",
                   top: "50%",
-                  left: "-10px",
+                  left: "-30px",
                   transform: "translateY(-50%)",
                   cursor: "pointer",
                   color: "#C6AC96",
                   zIndex: 2,
                   height: "30px",
                 }}
-                onClick={prevImage}
+                onClick={() => {
+                  prevImage();
+                  // Ensure thumbnail index is updated to show current image
+                  if (currentIndex < thumbnailIndex) {
+                    setThumbnailIndex(Math.max(0, currentIndex - 2));
+                  }
+                }}
               />
 
               {/* Main Image */}
@@ -188,54 +232,54 @@ function Libasproduct() {
                 alt="Main Product"
                 className="img-fluid product-image"
                 style={{
-                  height: "430px",
-                  width: "100%",
+                  height: "460px",
                   objectFit: "contain",
                   cursor: "pointer",
-                  marginTop: "2px",
+                  marginTop: "2px ",
                   outline: "none",
                 }}
-                whileHover={{ scale: 1.01 }}
+                whileHover={{ scale: 0.98 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => openModal(images.indexOf(mainImage))}
               />
 
               {/* Right Arrow */}
               <img
-                src="/rightarr.svg"
+                src="/rightnew.svg"
                 alt=""
                 style={{
                   position: "absolute",
                   top: "50%",
-                  right: "-8px",
+                  right: "-30px",
                   transform: "translateY(-50%)",
                   cursor: "pointer",
                   color: "#C6AC96",
                   zIndex: 2,
                   height: "30px",
                 }}
-                onClick={nextImage}
+                onClick={() => {
+                  nextImage();
+                  // Ensure thumbnail index is updated to show current image
+                  if (currentIndex >= thumbnailIndex + 4) {
+                    setThumbnailIndex(
+                      Math.min(images.length - 5, currentIndex - 2)
+                    );
+                  }
+                }}
               />
             </div>
-
-            {/* Image Gallery Tiles */}
-            <div
-              className="d-flex align-items-center mt-3"
-              style={{ position: "relative" }}
-            >
-              {/* Thumbnails Grid */}
-              <div
-                className="thumbnail-grid"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(6, 1fr)",
-                  gap: "10px",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "100%",
-                }}
-              >
-                {images?.map((image, index) => {
+          </div>
+          {/* bottom */}
+          {/* Image Gallery Tiles */}
+          <div
+            className="d-flex align-items-center mt-3"
+            style={{ justifyContent: "center", position: "relative" }}
+          >
+            {/* Thumbnails */}
+            <div className="d-flex" style={{ gap: "12px" }}>
+              {images
+                .slice(thumbnailIndex, thumbnailIndex + visibleThumbnails)
+                .map((image, index) => {
                   const actualIndex = index + thumbnailIndex;
                   return (
                     <img
@@ -243,14 +287,15 @@ function Libasproduct() {
                       src={image}
                       alt={`Thumbnail ${actualIndex + 1}`}
                       className="img-fluid"
-                      onClick={() => handleThumbnailClick(image, actualIndex)}
+                      onClick={() => handleThumbnailClick(image, index)}
                       style={{
-                        height: "62px",
-                        width: "72px",
+                        height: "90px",
+                        width: "100px",
                         border:
                           currentIndex === actualIndex
-                            ? "2px solid #C6AC96"
+                            ? "1px solid #C6AC96"
                             : "",
+                        borderRadius: "5px",
                         cursor: "pointer",
                         opacity: currentIndex === actualIndex ? 1 : 0.5, // Reduce opacity for inactive images
                         filter:
@@ -260,7 +305,6 @@ function Libasproduct() {
                     />
                   );
                 })}
-              </div>
             </div>
           </div>
         </div>
