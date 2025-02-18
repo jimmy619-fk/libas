@@ -13,6 +13,12 @@ function Libasproduct() {
     "sample4.jpg",
     "sample1.jpg",
     "sample6.jpg",
+    "sample2.jpg",
+    "libasshoes3.png",
+    "libasshoes1.svg",
+    "sample4.jpg",
+    "sample1.jpg",
+    "sample6.jpg",
   ];
 
   // State for main image and modal
@@ -147,7 +153,7 @@ function Libasproduct() {
             </div>
             <div style={{ position: "relative", width: "100%" }}>
               {/* Left Arrow */}
-              <MdArrowBack
+              {/* <MdArrowBack
                 size={40}
                 style={{
                   position: "absolute",
@@ -157,6 +163,21 @@ function Libasproduct() {
                   cursor: "pointer",
                   color: "#C6AC96",
                   zIndex: 2,
+                }}
+                onClick={prevImage}
+              /> */}
+              <img
+                src="/leftarr.svg"
+                alt=""
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "-10px",
+                  transform: "translateY(-50%)",
+                  cursor: "pointer",
+                  color: "#C6AC96",
+                  zIndex: 2,
+                  height: "30px",
                 }}
                 onClick={prevImage}
               />
@@ -172,6 +193,7 @@ function Libasproduct() {
                   objectFit: "contain",
                   cursor: "pointer",
                   marginTop: "2px",
+                  outline: "none",
                 }}
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
@@ -179,16 +201,18 @@ function Libasproduct() {
               />
 
               {/* Right Arrow */}
-              <MdArrowForward
-                size={40}
+              <img
+                src="/rightarr.svg"
+                alt=""
                 style={{
                   position: "absolute",
                   top: "50%",
-                  right: "-10px",
+                  right: "-8px",
                   transform: "translateY(-50%)",
                   cursor: "pointer",
                   color: "#C6AC96",
                   zIndex: 2,
+                  height: "30px",
                 }}
                 onClick={nextImage}
               />
@@ -204,7 +228,7 @@ function Libasproduct() {
                 className="thumbnail-grid"
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "repeat(5, 1fr)",
+                  gridTemplateColumns: "repeat(6, 1fr)",
                   gap: "10px",
                   justifyContent: "center",
                   alignItems: "center",
@@ -221,8 +245,8 @@ function Libasproduct() {
                       className="img-fluid"
                       onClick={() => handleThumbnailClick(image, actualIndex)}
                       style={{
-                        height: "80px",
-                        width: "80px",
+                        height: "62px",
+                        width: "72px",
                         border:
                           currentIndex === actualIndex
                             ? "2px solid #C6AC96"
@@ -255,12 +279,15 @@ function Libasproduct() {
               className="modal-close-icon"
               onClick={closeModal}
             />
-            <MdArrowBack
-              size={50}
+
+            {/* left arrow expand */}
+            <img
+              src="/leftexpand.svg"
+              alt=""
               className="modal-arrow left-arrow"
               onClick={(e) => {
                 e.stopPropagation();
-                prevImage();
+                nextImage();
               }}
             />
             <motion.img
@@ -272,8 +299,10 @@ function Libasproduct() {
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()} // Prevent closing on image click
             />
-            <MdArrowForward
-              size={50}
+            {/* right arrow expand */}
+            <img
+              src="/rightexpand.svg"
+              alt=""
               className="modal-arrow right-arrow"
               onClick={(e) => {
                 e.stopPropagation();
@@ -507,7 +536,7 @@ function Libasproduct() {
             </div>
             {/* seller */}
             <div
-              className="seller-info seller-info-ipad d-none d-md-flex   flex-col align-items-center "
+              className="seller-info seller-info-ipad d-none d-md-flex   flex-col align-items-center mb-3"
               style={{
                 border: "1px solid #00000012",
                 borderRadius: "5px",
@@ -727,168 +756,206 @@ function Libasproduct() {
               </div>
             </div>
             {/* seller for mobile */}
-            <div className="d-flex d-md-none flex-column align-items-center ">
-              {/* Seller Profile Picture */}
-              <img
-                src="/libasseller.svg"
-                alt="Seller Profile"
-                className="rounded-circle"
-                style={{ marginBottom: "15px", marginTop: "20px" }}
-              />
-
-              {/* Seller Information */}
-              <div className="w-100">
-                {/* Trusted Badge & Username */}
-                <div className="text-center">
-                  <div className="d-flex align-items-center justify-content-center mb-2">
-                    <img
-                      src="/libasverify.svg"
-                      alt="Trusted Seller Icon"
-                      style={{ height: "20px" }}
-                    />
-                    <p
-                      style={{
-                        fontSize: "14px",
-                        fontWeight: "400",
-                        color: "#C6AC96",
-                        marginLeft: "10px",
-                        marginBottom: "0",
-                      }}
-                    >
-                      Trusted Seller
-                    </p>
-                  </div>
-                  <p
-                    style={{
-                      fontSize: "14px",
-                      fontWeight: "500",
-                      color: "#262626",
-                      marginBottom: "17px",
-                    }}
-                  >
-                    @mhijazi
-                  </p>
-                </div>
-                <div
-                  className="justify-content-center  d-flex align-items-center gap-2"
-                  style={{
-                    marginBottom: "15px",
-                  }}
-                >
-                  <motion.button
-                    className="btn helvetica-font "
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      borderRadius: "3px",
-                      borderColor: "#D9D9D9",
-
-                      color: "#777777",
-                      width: "81px",
-                      height: "35px",
-                    }}
-                    whileHover={{ scale: 1.05 }} // Slight scale up on hover
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Follow
-                  </motion.button>
-                  <motion.button
-                    className="btn helvetica-font"
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      borderRadius: "3px",
-                      width: "81px",
-                      height: "35px",
-                      backgroundColor: "#404040",
-                      color: "#FFFFFF",
-                    }}
-                    whileHover={{ scale: 1.05 }} // Slight scale up on hover
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Contact
-                  </motion.button>
-                </div>
-                {/* Activity Status & Items Sold */}
-                <div className="text-center mb-3">
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      color: "#808080",
-                      marginBottom: "2px",
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: "inline-block",
-                        height: "9px",
-                        width: "9px",
-                        borderRadius: "50%",
-                        backgroundColor: "#3A9F64",
-                        marginRight: "5px",
-                      }}
-                    ></span>
-                    Last active today
-                  </p>
-                  <p
-                    style={{
-                      color: "#808080",
-                      fontSize: "12px",
-                      marginBottom: "10px",
-                    }}
-                  >
-                    44 items sold
-                  </p>
-                </div>
-
-                {/* Location */}
-                <div className="d-flex align-items-center justify-content-center mb-3">
+            <div
+              className="seller-info seller-info-ipad d-flex d-md-none flex-col mb-3"
+              style={{
+                border: "1px solid #00000012",
+                borderRadius: "5px",
+                padding: "15px",
+                maxWidth: "500px",
+                marginBottom: "2px",
+              }}
+            >
+              <div className="flex-col align-items-start w-100">
+                <div className="d-flex align-items-start">
+                  {/* Seller Profile Picture - Positioned at top left */}
                   <img
-                    src="/libasloc.svg"
-                    alt="Location Icon"
+                    src="/libasseller.svg"
+                    alt="Seller Profile"
+                    className="rounded-circle"
                     style={{
-                      width: "14px",
-                      height: "14px",
-                      marginRight: "4px",
+                      height: "58px",
+                      width: "58px",
+                      marginRight: "10px",
                     }}
                   />
-                  <p
-                    style={{
-                      fontSize: "12px",
-                      fontWeight: "400",
-                      color: "#262626",
-                      marginBottom: "0",
-                    }}
-                  >
-                    Lebanon
-                  </p>
+
+                  {/* Seller Information */}
+                  <div style={{ flexGrow: 1, width: "100%" }}>
+                    <div className="d-flex align-items-center">
+                      <div className="mb-0 d-flex flex-column">
+                        <div className="d-flex align-items-center">
+                          <img
+                            src="/libasverify.svg"
+                            alt="Trusted Seller Icon"
+                            style={{
+                              height: "12px",
+                              verticalAlign: "middle",
+                            }}
+                          />
+                          <p
+                            style={{
+                              fontSize: "10px",
+                              fontWeight: "400",
+                              color: "#C6AC96",
+                              marginLeft: "2px",
+                              marginBottom: "0px",
+                              marginTop: "0px",
+                            }}
+                            className="mb-0"
+                          >
+                            Trusted Seller
+                          </p>
+                        </div>
+                        <div>
+                          <p
+                            className="mb-0"
+                            style={{
+                              fontSize: "10px",
+                              fontWeight: "500",
+                              marginBottom: "0px",
+                              color: "#262626",
+                            }}
+                          >
+                            @mhijazi
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* follow /contact */}
+                      <div className="ms-auto d-flex align-items-center gap-1 mt-2 ">
+                        <motion.button
+                          className="btn helvetica-font"
+                          style={{
+                            fontSize: "8px",
+                            fontWeight: "400",
+                            borderRadius: "4px",
+                            borderColor: "#D9D9D9",
+                            color: "#777777",
+                            padding: "7px 6px",
+                          }}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Follow
+                        </motion.button>
+                        <motion.div
+                          className="btn helvetica-font"
+                          style={{
+                            fontSize: "8px",
+                            fontWeight: "400",
+                            borderRadius: "4px",
+                            outline: "none",
+                            padding: "7px 6px",
+                            backgroundColor: "#404040",
+                            color: "#FFFFFF",
+                          }}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          Contact
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    {/* Last active section */}
+                    <div
+                      className="d-flex justify-content-between"
+                      style={{ marginTop: "2px" }}
+                    >
+                      <div className="d-flex flex-column">
+                        <p
+                          style={{
+                            fontSize: "8px",
+                            fontWeight: "400",
+                            color: "#808080",
+                            marginBottom: "0px",
+                          }}
+                        >
+                          <span
+                            style={{
+                              display: "inline-block",
+                              height: "6px",
+                              width: "6px",
+                              borderRadius: "100%",
+                              backgroundColor: "#3A9F64",
+                              marginRight: "3px",
+                            }}
+                          ></span>
+                          Last active today
+                        </p>
+                        <p
+                          style={{
+                            color: "#808080",
+                            fontSize: "8px",
+                            marginBottom: "2px",
+                          }}
+                        >
+                          44 items sold
+                        </p>
+                        {/* Seller Location - */}
+                        <div className="d-flex align-items-center mt-0">
+                          <img
+                            src="/libasloc.svg"
+                            alt="Location Icon"
+                            style={{
+                              width: "6px",
+                              height: "6px",
+                              marginRight: "4px",
+                            }}
+                          />
+                          <p
+                            style={{
+                              fontSize: "8px",
+                              fontWeight: "400",
+                              color: "#262626",
+                              marginBottom: "0",
+                            }}
+                          >
+                            Lebanon
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Rating */}
-                <div className="d-flex flex-column align-items-center">
+                {/* Rating and See More on same line */}
+                <div className="d-flex gap-3 align-items-center mt-2">
                   <div className="d-flex align-items-center">
-                    <img src="/libasrate.svg" alt="Rating" />
-                    <img src="/libasrate.svg" alt="Rating" />
-                    <img src="/libasrate.svg" alt="Rating" />
-                    <img src="/libasrate.svg" alt="Rating" />
-                    <img src="/libasrate.svg" alt="Rating" />
+                    {[...Array(5)].map((_, index) => (
+                      <img
+                        key={index}
+                        src="/libasrate.svg"
+                        alt="Rating"
+                        style={{
+                          height: "12px",
+                          width: "12px",
+                        }}
+                      />
+                    ))}
                     <p
-                      className="mb-0 ms-2"
-                      style={{ fontSize: "12px", color: "#808080" }}
+                      className="mb-0 ms-1"
+                      style={{
+                        fontSize: "10px",
+                        color: "#808080",
+                      }}
                     >
                       (100)
                     </p>
                   </div>
+
+                  {/* See More button - Adjacent to ratings */}
                   <button
-                    className="mt-2 mb-3"
                     style={{
                       backgroundColor: "#C6AC96",
                       color: "#fff",
-                      width: "70px",
+                      width: "64px",
                       height: "28px",
                       borderRadius: "2px",
                       border: "none",
                       fontSize: "10px",
+                      padding: "0 8px",
                     }}
                   >
                     See More

@@ -78,6 +78,7 @@ body {
   body {
     padding-bottom: 60px !important;
   }
+
   /* hide nav web */
   .navbar-web {
     display: none !important;
@@ -151,6 +152,10 @@ body {
 
   .product-detail-border {
     max-width: 100% !important;
+  }
+
+  .quality-control-right-section-mobile {
+    padding: 5px !important;
   }
 }
 /* show  product left slider mobile */

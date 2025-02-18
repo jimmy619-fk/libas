@@ -67,15 +67,11 @@ function Libasheader() {
           className="d-flex mx-auto header-font"
         >
           {menuItems.map((item, index) => (
-            <a
-              key={index}
-              href={item.link}
-              style={{ textDecoration: "none" }} // Remove underline
-            >
+            <a key={index} href={item.link} style={{ textDecoration: "none" }}>
               <motion.p
-                initial={{ color: item?.color }} // Default color
-                whileHover={{ color: "#C6AC96" }} // Color on hover
-                transition={{ duration: 0.3, ease: "easeInOut" }} // Smooth transition
+                initial={{ color: item?.color }}
+                whileHover={{ color: "#C6AC96" }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="header-font"
                 style={{
                   fontSize: "16px",

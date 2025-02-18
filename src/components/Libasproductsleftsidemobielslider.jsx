@@ -12,11 +12,10 @@ function Libasproductsleftsidemobielslider({ images }) {
     <div className="libas-mobile-slider-container">
       {/* Mobile Product Slider */}
       <div className="product-image-wrapper">
-        {/* Main product image with controls */}
         {/* Carousel Slider for Mobile */}
         <Carousel
           indicators={false}
-          controls={true}
+          controls={false}
           interval={null} // No auto-slide
           activeIndex={mainImageIndex} // Bind activeIndex to current selected image
           onSelect={handleSelect} // Handle image change

@@ -13,7 +13,7 @@ function Libasproductaccordion() {
     }
   };
   return (
-    <div className="quality-section montserrat-font mt-3 mt-md-0">
+    <div className="quality-section montserrat-font mt-3 mt-md-0 quality-control-right-section-mobile">
       {/* Quality Control Section */}
       <div className="mb-4">
         <button

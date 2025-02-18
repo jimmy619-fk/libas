@@ -10,7 +10,6 @@ import Brandpartners from "./components/Brandpartners";
 function App() {
   return (
     <Router>
-      {/* navbar */}
       <Libasnav />
       {/* header */}
       <Libasheader />
