@@ -398,7 +398,7 @@ function Libasproduct() {
           <div
             className="product-info montserrat-font product-right-side"
             style={{
-              paddingTop: "30px",
+              paddingTop: "20px",
               paddingLeft: "73px",
             }}
           >
