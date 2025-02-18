@@ -78,9 +78,6 @@ function Libasproduct() {
       // Update thumbnail slice
       const newThumbnailIndex = thumbnailIndex + 1;
       setThumbnailIndex(newThumbnailIndex);
-
-      // Only update current image if we're using arrows to navigate thumbnails
-      // Don't force image change when just scrolling thumbnails
     }
   };
 
@@ -89,9 +86,6 @@ function Libasproduct() {
       // Update thumbnail slice
       const newThumbnailIndex = thumbnailIndex - 1;
       setThumbnailIndex(newThumbnailIndex);
-
-      // Only update current image if we're using arrows to navigate thumbnails
-      // Don't force image change when just scrolling thumbnails
     }
   };
   // ESC ,left and right keys
@@ -295,7 +289,6 @@ function Libasproduct() {
               />
             </div>
           </div>
-          {/* bottom */}
           {/* Image Gallery Tiles */}
           <div
             className="d-flex align-items-center mt-3"
@@ -536,13 +529,13 @@ function Libasproduct() {
             </div>
             {/* Add to Bag and Make an Offer section */}
             <div
-              className=" d-flex align-items-center"
+              className="w-100 d-flex align-items-center bagsbuttons"
               style={{
                 marginTop: "25px",
               }}
             >
               <motion.button
-                className="me-3 product-right-side-add-to-bag"
+                className="me-3 product-right-side-add-to-bag add-to-bag"
                 style={{
                   backgroundColor: "#5C5C5C",
                   color: "#fff",
@@ -551,7 +544,7 @@ function Libasproduct() {
                   fontWeight: "500",
                   width: "287px",
                   height: "50px",
-                  borderRadius: "1px",
+                  borderRadius: "3px",
                   border: "none",
                 }}
                 whileHover={{ scale: 1.05 }}
@@ -560,7 +553,7 @@ function Libasproduct() {
                 Add to Bag
               </motion.button>
               <motion.button
-                className="btn product-right-side-make-an-offer"
+                className="btn product-right-side-make-an-offer make-offer"
                 style={{
                   backgroundColor: "transparent",
                   border: "1px solid #808080",
@@ -570,7 +563,7 @@ function Libasproduct() {
                   fontWeight: "500",
                   width: "192px",
                   height: "50px",
-                  borderRadius: "1px",
+                  borderRadius: "3px",
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

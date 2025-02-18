@@ -118,16 +118,18 @@ function Libasalsolike() {
 
   return (
     <div
-      className="my-4 container montserrat-font overflow-hidden"
-      style={{ margin: "0 auto" }}
+      className="my-4  montserrat-font overflow-hidden"
+      style={{
+        margin: "0 auto",
+
+        maxWidth: "89%",
+      }}
     >
       <div
         className="you-may-also-like-top d-flex justify-content-between align-items-center w-100"
         style={{
           fontSize: "40px",
-          marginTop: "40px",
-          // heading padding to little right side
-          paddingLeft: "10px",
+          marginTop: "25px",
         }}
       >
         <h3
@@ -212,6 +214,7 @@ function Libasalsolike() {
                     fontSize: "24px",
                     color: "#262626",
                   }}
+                  draggable="false"
                 >
                   {item.brand}
                 </h5>

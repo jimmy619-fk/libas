@@ -78,6 +78,41 @@ body {
   }
 }
 
+/* For mobile phones */
+
+@media only screen and (max-width: 550px) {
+  /* product detail page */
+  .product-right-side {
+    padding-top: 12px !important;
+    /* background-color: red !important; */
+    margin: 0px !important;
+    padding: 16px !important;
+    background-color: #fcfaf9 !important;
+  }
+
+  .you-may-also-like-top {
+    padding-left: 9px !important;
+  }
+  .more-from-this-seller-top {
+    padding-left: 9px !important;
+  }
+  .bagsbuttons {
+    display: flex !important;
+    justify-content: space-between !important;
+  }
+  .add-to-bag {
+    width: 70% !important;
+    flex-grow: 0 !important;
+  }
+  .make-offer {
+    width: 30% !important;
+    flex-grow: 0 !important;
+  }
+  .product-right {
+    background-color: white !important;
+  }
+}
+
 /* hide product left slider web till 1000*/
 @media only screen and (max-width: 1000px) {
   /* addign on mobile side so content is visible */
@@ -124,7 +159,7 @@ body {
 
   .product-right-side-add-to-bag {
     font-size: 14px !important;
-    width: 161px !important;
+    width: 70% !important;
   }
   .product-right-side-make-an-offer {
     font-size: 12px !important;
@@ -314,4 +349,12 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+}
+
+/* -------------------------------------React slick for allowing user to select text */
+.slick-slider {
+  user-select: text !important;
+}
+.slick-slide {
+  user-select: text !important;
 }

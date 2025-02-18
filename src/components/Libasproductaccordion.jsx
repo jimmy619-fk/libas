@@ -129,7 +129,7 @@ function Libasproductaccordion() {
         <p
           className="montserrat-font font-light report-text"
           style={{
-            fontSize: "15px",
+            fontSize: "14px",
             color: "#777777",
           }}
         >

@@ -3,7 +3,14 @@ import { motion } from "framer-motion";
 
 function Lookingforsomethingelse() {
   return (
-    <div className="container ">
+    <div
+      className=" container"
+      style={{
+        margin: "0 auto",
+
+        maxWidth: "90%",
+      }}
+    >
       <div
         className="text-center text-md-start  mt-4 montserrat-font"
         style={{
@@ -13,7 +20,6 @@ function Lookingforsomethingelse() {
           border: "1px solid rgba(198, 172, 150, 0.44)",
           maxWidth: "615px",
           textAlign: "left", // Align text to the start
-          marginLeft: "0px", // Align container to the start
         }}
       >
         <h5

@@ -4,12 +4,14 @@ import Libasproductaccordion from "./Libasproductaccordion";
 function Libasproductdescription() {
   return (
     <div
-      className="container description-content"
+      className=" description-content"
       style={{
-        marginTop: "38px",
+        // marginTop: "38px",
+        maxWidth: "89%",
+        margin: "38px auto",
       }}
     >
-      <div className="row">
+      <div className="row ">
         {/* Left Section: Description */}
         <div className="col-lg-6 col-md-12 montserrat-font ">
           <div className="description-section description-left-section-mobile ">
@@ -23,7 +25,7 @@ function Libasproductdescription() {
             </h4>
             <p
               style={{
-                fontSize: "16px",
+                fontSize: "15px",
                 fontWeight: "300",
                 color: "#777777",
               }}

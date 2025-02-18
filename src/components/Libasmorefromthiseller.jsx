@@ -118,16 +118,21 @@ function Libasmorefromthisseller() {
 
   return (
     <div
-      className="my-4 container montserrat-font overflow-hidden"
-      style={{ margin: "0 auto" }}
+      className="my-4  montserrat-font overflow-hidden"
+      style={{
+        margin: "0 auto",
+
+        maxWidth: "89%",
+        // margin: "38px auto",
+      }}
     >
       <div
         className="more-from-this-seller-top d-flex justify-content-between align-items-center w-100"
         style={{
           fontSize: "40px",
-          marginTop: "60px",
+          marginTop: "25px",
           // heading padding to little right side
-          paddingLeft: "10px",
+          // paddingLeft: "10px",
         }}
       >
         <h3

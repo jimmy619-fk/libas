@@ -4,13 +4,16 @@ import { motion } from "framer-motion";
 
 function Communityreview() {
   return (
-    <div className="p-2 p-md-0">
+    <div className="p-3">
       <div
-        className="container mt-4 montserrat-font "
+        className="container mt-3 montserrat-font "
         style={{
           border: "1px solid #D2D2D2",
           borderRadius: "6px",
           padding: "24px",
+          margin: "0 auto",
+
+          maxWidth: "91%",
         }}
       >
         {/* Community Reviews Heading */}
