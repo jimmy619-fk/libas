@@ -18,7 +18,7 @@ function Communityreview() {
       >
         {/* Community Reviews Heading */}
         <h3
-          className=""
+          className="community-main"
           style={{
             fontSize: "24px",
             fontWeight: "500",
@@ -41,7 +41,7 @@ function Communityreview() {
 
         {/* Community Comments Section */}
         <h5
-          className=""
+          className="community-sub"
           style={{
             fontSize: "24px",
             fontWeight: "500",
@@ -73,21 +73,24 @@ function Communityreview() {
             </div>
 
             {/* Username */}
-            <p className="mb-0 " style={{ fontSize: "24px", color: "#1F1F1F" }}>
+            <p
+              className="mb-0 community-sub"
+              style={{ fontSize: "24px", color: "#1F1F1F" }}
+            >
               @Libas
             </p>
           </div>
 
           {/* Comment Text and Reply */}
           <div
-            className="d-flex flex-column gap-2"
+            className="d-flex flex-column gap-2 "
             style={{
               marginTop: "13px",
             }}
           >
             {/* Message */}
             <p
-              className="mb-0 text-muted"
+              className="mb-0 text-muted community-sub"
               style={{
                 fontSize: "17px",
                 wordBreak: "break-word",

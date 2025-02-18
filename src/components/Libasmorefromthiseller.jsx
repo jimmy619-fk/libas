@@ -145,13 +145,13 @@ function Libasmorefromthisseller() {
         </h3>
 
         <div
-          className="mb-0 d-none d-md-block"
+          className="mb-0 "
           style={{
             cursor: "pointer",
           }}
         >
           <img
-            src="libasviewall.svg"
+            src="viewallmobile.svg"
             alt="View All"
             style={{
               cursor: "pointer",
@@ -299,7 +299,7 @@ function Libasmorefromthisseller() {
       </Slider>
 
       {/* For mobile side */}
-      <div
+      {/* <div
         className="mb-0 d-block text-center d-md-none"
         style={{
           cursor: "pointer",
@@ -313,7 +313,7 @@ function Libasmorefromthisseller() {
             marginTop: "20px",
           }}
         />
-      </div>
+      </div> */}
     </div>
   );
 }

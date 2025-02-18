@@ -81,6 +81,12 @@ body {
 /* For mobile phones */
 
 @media only screen and (max-width: 550px) {
+  .community-sub {
+    font-size: 18px !important;
+  }
+  .community-main {
+    font-size: 18px !important;
+  }
   /* product detail page */
   .product-right-side {
     padding-top: 12px !important;
@@ -88,6 +94,10 @@ body {
     margin: 0px !important;
     padding: 16px !important;
     background-color: #fcfaf9 !important;
+  }
+
+  .description-content {
+    margin-top: 12px !important;
   }
 
   .you-may-also-like-top {
@@ -196,7 +206,7 @@ body {
   }
 
   .description-left-section-mobile {
-    padding: 12px !important;
+    padding: 3px !important;
   }
   .quality-control-right-section-mobile {
     padding: 14px !important;
