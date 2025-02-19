@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Libasproductsleftsidemobielslider from "./Libasproductsleftsidemobielslider";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdClose, MdArrowBack, MdArrowForward } from "react-icons/md";
+import { BiChevronRight } from "react-icons/bi";
 
 function Libasproduct() {
   // Array of product images
@@ -124,7 +125,9 @@ function Libasproduct() {
   // useEffect(() => {
   //   setVisibleThumbnails(window.innerWidth < 1114 ? 5 : 5);
   // }, []);
-
+  const hasMoreLeft = thumbnailIndex > 0;
+  // const hasMoreRight = thumbnailIndex + visibleThumbnails < images.length;
+  const hasMoreRight = images.length > 5;
   return (
     <div
       className="container   product-detail-border"
@@ -289,6 +292,7 @@ function Libasproduct() {
               />
             </div>
           </div>
+
           {/* Image Gallery Tiles */}
           <div
             className="d-flex align-items-center mt-3"
@@ -330,6 +334,32 @@ function Libasproduct() {
                   );
                 })}
             </div>
+
+            {hasMoreRight && (
+              <button
+                className=" right-5 z-10 border-0 bg-transparent   right-arr-thumb-ipad"
+                aria-label="Next thumbnails"
+                style={{
+                  position: "relative",
+                  left: "1%",
+                }}
+              >
+                <img
+                  src="/rightarr.svg"
+                  alt=""
+                  className=""
+                  onClick={() => {
+                    nextImage();
+                    // Ensure thumbnail index is updated to show current image
+                    if (currentIndex >= thumbnailIndex + 4) {
+                      setThumbnailIndex(
+                        Math.min(images.length - 5, currentIndex - 2)
+                      );
+                    }
+                  }}
+                />
+              </button>
+            )}
           </div>
         </div>
 

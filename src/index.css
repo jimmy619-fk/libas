@@ -76,6 +76,10 @@ body {
     height: 90px !important;
     width: 77px !important;
   }
+
+  .right-arr-thumb-ipad {
+    left: 3% !important;
+  }
 }
 
 /* For mobile phones */
